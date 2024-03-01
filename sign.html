@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Form</title>
+
+  <!-- Link to your external CSS file -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <h1>Signup Form</h1>
+  <form id="signupForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="button" onclick="signup()">Signup</button>
+  </form>
+
+  <script>
+    // Your JavaScript code remains unchanged
+    function signup() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      const data = {
+        username: username,
+        password: password
+      };
+
+      fetch('http://localhost:3000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Signup failed');
+        }
+        return response.json();
+      })
+      .then(result => {
+        console.log(result);
+        alert(result.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred during signup.');
+      });
+    }
+    function login() {
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const data = {
+        username: username,
+        password: password
+      };
+
+      fetch('http://localhost:3000/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result);
+        alert(result.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred.');
+      });
+    }
+  </script>
+
+</body>
+</html>

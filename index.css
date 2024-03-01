@@ -1,0 +1,38 @@
+/* Existing styles... */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #348ac7, #7673c0);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #fff;
+  }
+  
+  p {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #4caf50;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  a:hover {
+    background-color: #45a049;
+  }
+  
